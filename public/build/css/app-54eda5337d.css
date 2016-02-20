@@ -5751,29 +5751,5 @@ button.close {
     display: none !important; } }
 
 /* end bootstrap */
-main {
-  color: black;
-  font-family: "Catamaran", sans-serif;
-  font-weight: 200;
-  font-size: 16px; }
-  main a {
-    color: #AFAFAF;
-    font-family: "Khula", sans-serif; }
-  main a:visited {
-    color: blue; }
-  main a:hover {
-    color: yellow; }
-  main h1 {
-    font-size: 48px; }
-  main h2 {
-    font-size: 40.8px; }
-  main h3 {
-    font-size: 37.6px; }
-  main h4 {
-    font-size: 32.8px; }
-  main h5 {
-    font-size: 29.6px; }
-  main h6 {
-    font-size: 26.4px; }
 
 /*# sourceMappingURL=app.css.map */
