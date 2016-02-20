@@ -30,27 +30,29 @@
 @stop
 
 @section('footer')
-<div class="modal fade" id="edit-note-{{$note->id}}">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Edit Note</h4>
-			</div>
-			<div class="modal-body">
-				<form method="post" action="/notes/{{ $note->id }}">
-					{{ method_field('PATCH') }}
+@foreach ( $card->notes as $note )
+	<div class="modal fade" id="edit-note-{{$note->id}}">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Edit Note</h4>
+				</div>
+				<div class="modal-body">
+					<form method="post" action="/notes/{{ $note->id }}">
+						{{ method_field('PATCH') }}
 
-					<div class="form-group">
-						<textarea name="body" class="form-control">{{ $note->body }}</textarea>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-				<button type="submit" class="btn btn-success pull-right">Update Note</button>
+						<div class="form-group">
+							<textarea name="body" class="form-control">{{ $note->body }}</textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-success pull-right">Update Note</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+@endforeach
 @stop
