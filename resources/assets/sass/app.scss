@@ -1,15 +1,70 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+/* end bootstrap */
+@import url(https://fonts.googleapis.com/css?family=Catamaran:400,300,700|Khula:400,700,300);
 
+// Colours
 $primary: red;
 $secondary: blue;
 $tertiary: green;
-$text: purple;
-$border: yellow;
-$link: black;
 
-body {
+// Text
+$text: purple;
+$link: black;
+$link_visited: blue;
+$link_hover: yellow;
+
+// Styling
+$border: yellow;
+
+// Fonts
+$primary_font: 'Catamaran', sans-serif;
+$secondary_font: 'Khula', sans-serif;
+$base_font: 16px;
+
+
+
+main {
 	color: $text;
+	font-family: $primary_font;
+	font-weight:200;
+	font-size: $base_font;
+	margin:auto 10%;
+
 	a {
 		color: $link;
+		font-family: $secondary_font;
+	}
+
+	a:visited {
+		color: $link_visited;
+	}
+
+	a:hover {
+		color: $link_hover;
+	}
+
+
+	h1 {
+	    font-size: $base_font * 3;
+	}
+
+	h2 {
+	    font-size: $base_font * 2.55;
+	}
+
+	h3 {
+	    font-size: $base_font * 2.35;
+	}
+
+	h4 {
+	    font-size: $base_font * 2.05;
+	}
+
+	h5 {
+	    font-size: $base_font * 1.85;
+	}
+
+	h6 {
+	    font-size: $base_font * 1.65;
 	}
 }
