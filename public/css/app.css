@@ -5752,13 +5752,12 @@ button.close {
 
 /* end bootstrap */
 main {
-  color: purple;
+  color: black;
   font-family: "Catamaran", sans-serif;
   font-weight: 200;
-  font-size: 16px;
-  margin: auto 10%; }
+  font-size: 16px; }
   main a {
-    color: black;
+    color: #AFAFAF;
     font-family: "Khula", sans-serif; }
   main a:visited {
     color: blue; }

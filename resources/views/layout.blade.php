@@ -12,7 +12,16 @@
 	</head>
 	<body>
 		<main>
-			@yield('content')
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/cards">Cards</a></li>
+				</ul>
+			</nav>
+			
+			<div class="container">
+				@yield('content')
+			</div>
 		</main>
 		<!-- scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

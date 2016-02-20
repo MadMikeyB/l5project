@@ -8,8 +8,8 @@ $secondary: blue;
 $tertiary: green;
 
 // Text
-$text: purple;
-$link: black;
+$text: black;
+$link: #AFAFAF;
 $link_visited: blue;
 $link_hover: yellow;
 
@@ -28,7 +28,6 @@ main {
 	font-family: $primary_font;
 	font-weight:200;
 	font-size: $base_font;
-	margin:auto 10%;
 
 	a {
 		color: $link;
