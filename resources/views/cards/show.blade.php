@@ -10,7 +10,7 @@
 				<li class="list-group-item">
 					{{ $note->body }}
 					<span class="pull-right">
-						@if ( {{$note->user->username }} )
+						@if ( $note->user )
 						<a href="#">{{ $note->user->username }}</a>
 						&#47;
 						@endif
