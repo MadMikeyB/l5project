@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Laravel Project</title>
 		<!-- Stylesheets (managed by SCSS) -->
-		<link rel="stylesheet" href="/css/app.css" type="text/css">
+		<link rel="stylesheet" href="{{ elixir('css/app.css') }}" type="text/css">
 		<!-- Meta & Extra Styles -->
 		@yield('header')
 	</head>
