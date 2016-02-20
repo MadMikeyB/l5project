@@ -1,4 +1,6 @@
 body {
   color: purple; }
+  body a {
+    color: black; }
 
 /*# sourceMappingURL=app.css.map */

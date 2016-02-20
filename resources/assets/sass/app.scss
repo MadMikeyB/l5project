@@ -5,7 +5,11 @@ $secondary: blue;
 $tertiary: green;
 $text: purple;
 $border: yellow;
+$link: black;
 
 body {
 	color: $text;
+	a {
+		color: $link;
+	}
 }
