@@ -9,7 +9,13 @@
 			@foreach ( $card->notes as $note )
 				<li class="list-group-item">
 					{{ $note->body }}
-					<a href='#edit-note-{{$note->id}}' class="pull-right" data-toggle="modal" >Edit Note</a>
+					<span class="pull-right">
+						@if ( {{$note->user->username }} )
+						<a href="#">{{ $note->user->username }}</a>
+						&#47;
+						@endif
+						<a href="#edit-note-{{$note->id}}" data-toggle="modal" >Edit Note</a>
+					</span>
 				</li>
 			@endforeach
 		</ul>
@@ -29,6 +35,7 @@
 </div>
 @stop
 
+
 @section('footer')
 @foreach ( $card->notes as $note )
 	<div class="modal fade" id="edit-note-{{$note->id}}">
@@ -38,19 +45,19 @@
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">Edit Note</h4>
 				</div>
-				<div class="modal-body">
-					<form method="post" action="/notes/{{ $note->id }}">
-						{{ method_field('PATCH') }}
+				<form method="post" action="/notes/{{ $note->id }}">
+					<div class="modal-body">
+							{{ method_field('PATCH') }}
 
-						<div class="form-group">
-							<textarea name="body" class="form-control">{{ $note->body }}</textarea>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-					<button type="submit" class="btn btn-success pull-right">Update Note</button>
-				</div>
+							<div class="form-group">
+								<textarea name="body" class="form-control">{{ $note->body }}</textarea>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-success pull-right">Update Note</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
