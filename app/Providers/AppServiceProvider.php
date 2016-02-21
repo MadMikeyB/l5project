@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /* @define($foo = 'bar') */
+        Blade::directive('define', function($expression) {
+            return preg_replace('/\@define(.+)/', '<?php ${1}; ?>', $expression);
+        });
     }
 
     /**
