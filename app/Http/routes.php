@@ -1,8 +1,7 @@
 <?php
 
-
 // Cards and Notes only for Authenticated Users.
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['web','auth']], function() {
 	Route::get('cards', 'CardsController@index');
 	Route::get('cards/{card}', 'CardsController@show');
 

@@ -13,9 +13,6 @@ class CardsController extends Controller
 {
    	public function index()
    	{
-         if (Auth::check()) {
-            dd(Auth::user());
-         }
    		// $cards = DB::table('cards')->get();
    		$cards = Card::all();
    		return view('cards.index', compact('cards'));
