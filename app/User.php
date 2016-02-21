@@ -23,4 +23,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cards()
+    {
+        return $this->hasMany(Card::class, 'user_id');
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class, 'user_id');
+    }
 }

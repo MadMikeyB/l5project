@@ -10,4 +10,9 @@ class Card extends Model
 	{
 		return $this->hasMany(Note::class);
 	}
+
+	public function user()
+	{
+		return $this->hasOne(User::class, 'id');
+	}
 }

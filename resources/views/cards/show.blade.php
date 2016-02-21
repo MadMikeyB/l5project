@@ -23,6 +23,7 @@
 		<h1>Add a New Note</h1>
 		
 		<form method="post" action="/cards/{{ $card->id }}/notes">
+			{{ csrf_field() }}
 			<div class="form-group">
 				<textarea name="body" class="form-control"></textarea>
 			</div>
