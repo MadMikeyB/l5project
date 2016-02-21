@@ -67,7 +67,7 @@
 						{{ csrf_field() }}
 						<div class="modal-body">
 								<div class="form-group">
-									<input type="text" class="form-control" id="title" name="title" placeholder="Card Title" required>
+									<textarea class="form-control" id="title" name="title" placeholder="Card Title" required></textarea>
 								</div>
 						</div>
 						<div class="modal-footer">
