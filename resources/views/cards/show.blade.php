@@ -14,7 +14,7 @@
 						@endif
 						@if (Auth::user()->id == $note->user->id )
 						&#47;
-						<a href="#edit-note-{{$note->id}}" data-toggle="modal" >Edit Note</a>
+						<a href="#edit-note-{{$note->id}}" data-toggle="modal">Edit Note</a>
 						@endif
 					</span>
 				</li>

@@ -19,7 +19,7 @@
 					<a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
 				</li>
 				<li>
-					<a data-toggle="modal" href="#postModal" role="button"><i class="glyphicon glyphicon-plus"></i> New Card</a>
+					<a data-toggle="modal" href="#create-card" role="button"><i class="glyphicon glyphicon-plus"></i> New Card</a>
 				</li>
 			</ul>
 			@if ( Auth::check() )
@@ -52,3 +52,29 @@
 			@endunless
 		</nav>
 	</div>
+
+	{{-- Modal for Create Card --}}
+	@section('footer')
+		<div class="modal fade" id="create-card">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title"><i class="fa fa-plus"></i> New Card</h4>
+					</div>
+					<form method="post" action="/cards">
+						{{ csrf_field() }}
+						<div class="modal-body">
+								<div class="form-group">
+									<input type="text" class="form-control" id="title" name="title" placeholder="Card Title" required>
+								</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+							<button type="submit" class="btn btn-success pull-right">Create Card</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	@stop
