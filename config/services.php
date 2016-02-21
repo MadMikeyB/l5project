@@ -34,10 +34,36 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
     'github' => [
         'client_id' => getenv('GITHUB_CLIENT_ID'),
         'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
         'redirect' => 'http://laravel.dev/social/github/callback',
+    ],
+    'facebook' => [
+        'client_id' => getenv('FACEBOOK_CLIENT_ID'),
+        'client_secret' => getenv('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => 'http://laravel.dev/social/facebook/callback',
+    ],
+    'twitter' => [
+        'client_id' => getenv('TWITTER_CLIENT_ID'),
+        'client_secret' => getenv('TWITTER_CLIENT_SECRET'),
+        'redirect' => 'http://laravel.dev/social/twitter/callback',
+    ],
+    'google' => [
+        'client_id' => getenv('GOOGLE_CLIENT_ID'),
+        'client_secret' => getenv('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'http://laravel.dev/social/google/callback',
+    ],
+    'linkedin' => [
+        'client_id' => getenv('LINKEDIN_CLIENT_ID'),
+        'client_secret' => getenv('LINKEDIN_CLIENT_SECRET'),
+        'redirect' => 'http://laravel.dev/social/linkedin/callback',
+    ],
+    'bitbucket' => [
+        'client_id' => getenv('BITBUCKET_CLIENT_ID'),
+        'client_secret' => getenv('BITBUCKET_CLIENT_SECRET'),
+        'redirect' => 'http://laravel.dev/social/bitbucket/callback',
     ],
 
 ];
