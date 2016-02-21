@@ -1,6 +1,13 @@
 @extends('layout')
 
 @section('content')
+@if (session()->has('flash_message'))
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Success!</strong>
+	{{ session()->get('flash_message') }}
+</div>
+@endif
 	<div class="col-md-12">
 		<h1>{{ $card->title }}</h1>
 
@@ -45,6 +52,7 @@
 					<h4 class="modal-title">Edit Note</h4>
 				</div>
 				<form method="post" action="/notes/{{ $note->id }}">
+					{{ csrf_field() }}
 					<div class="modal-body">
 							{{ method_field('PATCH') }}
 

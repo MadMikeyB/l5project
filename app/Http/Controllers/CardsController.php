@@ -13,7 +13,6 @@ class CardsController extends Controller
 {
    	public function index()
    	{
-   		// $cards = DB::table('cards')->get();
    		$cards = Card::all();
    		return view('cards.index', compact('cards'));
    	}
@@ -21,7 +20,6 @@ class CardsController extends Controller
    	public function show(Card $card)
    	{
          $card->load('notes.user');
-
          return view('cards.show', compact('card'));
    	}
 

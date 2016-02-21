@@ -12,9 +12,8 @@ class NotesController extends Controller
 {
    	public function store(Request $request, Card $card)
    	{
-         $card->users()->attach($request->user());
-         dd($card);
-   		$card->notes()->create( ['body' => $request->body] );
+   		$card->notes()->create( ['body' => $request->body, 'user_id' => $request->user()->id] );
+         session()->flash('flash_message', 'Note Saved');
    		return back();
    	}
 
@@ -26,7 +25,7 @@ class NotesController extends Controller
    	public function update(Request $request, Note $note)
    	{
    		$note->update( $request->all() );
-   		
+   		 session()->flash('flash_message', 'Note Saved');
    		return back();
    	}
 }
