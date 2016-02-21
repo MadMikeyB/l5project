@@ -37,7 +37,7 @@ return [
     'github' => [
         'client_id' => getenv('GITHUB_CLIENT_ID'),
         'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://laravel.dev/auth/github/callback',
+        'redirect' => 'http://laravel.dev/social/github/callback',
     ],
 
 ];

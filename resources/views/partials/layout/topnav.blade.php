@@ -35,7 +35,7 @@
 							<a href="">Settings</a>
 						</li>
 						<li>
-							<a href="">Log Out</a>
+							<a href="/logout">Log Out</a>
 						</li>
 					</ul>
 				</li>
