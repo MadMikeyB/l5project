@@ -18,9 +18,11 @@
 					<span class="pull-right">
 						@if ( $note->user )
 						<a href="#">{{ $note->user->username }}</a>
-						&#47;
 						@endif
+						@if (Auth::user()->id == $note->user->id )
+						&#47;
 						<a href="#edit-note-{{$note->id}}" data-toggle="modal" >Edit Note</a>
+						@endif
 					</span>
 				</li>
 			@endforeach
