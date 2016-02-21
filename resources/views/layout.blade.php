@@ -18,11 +18,11 @@
 		    <div class="box">
 		        <div class="row row-offcanvas row-offcanvas-left">
 					<!-- sidebar -->
-					@include('partials.sidebar')
+					@include('partials.layout.sidebar')
 					<!-- / sidebar -->
 					<div class="column col-sm-10 col-xs-11" id="main">
 						<!-- top nav -->
-						@include('partials.topnav')
+						@include('partials.layout.topnav')
 						<!-- / top nav -->
 						<!-- content -->
 						<div class="padding">

@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+use Socialite;
 
 class AuthController extends Controller
 {
@@ -68,5 +71,39 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Redirect the user to the Social Network authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from Social Network.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+             dd($user);
+
+        if ( $user )
+        {  
+            $u = User::firstOrCreate([
+                    'username'  => $user->getName(),
+                    'email'     => $user->getEmail(),
+                ]);
+            
+            Auth::user($u ,true);
+
+            return redirect('/');
+        }
+
     }
 }

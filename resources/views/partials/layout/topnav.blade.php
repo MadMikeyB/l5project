@@ -22,12 +22,13 @@
 					<a data-toggle="modal" href="#postModal" role="button"><i class="glyphicon glyphicon-plus"></i> New Card</a>
 				</li>
 			</ul>
+			@if ( Auth::check() )
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="#"><i class="glyphicon glyphicon-envelope"></i> 0</a>
 				</li>
 				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-heart"></i> Mikey</a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-heart"></i> {{ Auth::user()->username }}</a>
 					
 					<ul class="dropdown-menu">
 						<li>
@@ -39,5 +40,15 @@
 					</ul>
 				</li>
 			</ul>
+			@else
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="/login"><i class="fa fa-sign-in"></i> Log In</a>
+				</li>
+				<li>
+					<a href="/register"><i class="fa fa-users"></i> Register</a>
+				</li>
+			</ul>			
+			@endunless
 		</nav>
 	</div>
