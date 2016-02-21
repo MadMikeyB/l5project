@@ -7,7 +7,7 @@
 		</div>
 		<nav class="collapse navbar-collapse" role="navigation">
 			<form class="navbar-form navbar-left">
-				<div class="input-group input-group-sm" style="max-width:360px;">
+				<div class="input-group input-group-md col-md-12" style="max-width:660px;">
 					<input class="form-control" id="srch-term" name="srch-term" placeholder="Search" type="text">
 					<div class="input-group-btn">
 						<button class="btn btn-default" id="srch-term-btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>

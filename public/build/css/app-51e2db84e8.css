@@ -7829,6 +7829,9 @@ button.close {
   content: "\f295"; }
 
 /* end bootstrap */
+.navbar-right {
+  margin-right: 2%; }
+
 .btn-social {
   position: relative;
   padding-left: 44px;

@@ -24,6 +24,13 @@ $primary_font: 'Catamaran', sans-serif;
 $secondary_font: 'Khula', sans-serif;
 $base_font: 16px;
 
+// Custom
+.navbar-right {
+	margin-right:2%;
+}
+
+// Bootstrap Social
+
 
 .btn-social{position:relative;padding-left:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social>:first-child{position:absolute;left:0;top:0;bottom:0;width:32px;line-height:34px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
 .btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg>:first-child{line-height:45px;width:45px;font-size:1.8em}
