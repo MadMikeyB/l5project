@@ -92,8 +92,16 @@ class AuthController extends Controller
     {
         $user = Socialite::driver($provider)->user();
         if ( $user )
-        {  
-            $u = User::firstOrCreate([
+        {   
+            // check if user exists
+            if ( User::where('email', $user->getEmail() )->first() OR User::where('username', $user->getName()->first() ) )
+            {  
+                // messy... gotta be a more laravel way of doing this.
+                return redirect('/register')->withInput(['username' => $user->getName(), 'email' => $user->getEmail()])->with(['flash_message' => 'Username or Email already in use. Maybe you need to log in?', 'message_type' => 'danger']);
+            }
+            // otherwise create them. 
+            // firstOrCreate failed as it would see that the username wasnt in use but the email was, throwing an error.
+            $u = User::create([
                     'username'  => $user->getName(),
                     'email'     => $user->getEmail(),
                 ]);
