@@ -8,16 +8,17 @@
 			@foreach ( $card->notes as $note )
 				<li class="list-group-item">
 					{{ $note->body }}
-					<span class="pull-right">
+					<div class="pull-right">
 						@if ( $note->user )
 						<a href="#">{{ $note->user->username }}</a>
 						@endif
 						@if (Auth::user()->id == $note->user->id )
 						&#47;
 						{{-- data-remote="false" will be removed in Bootstrap 4 --}}
-						<a data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal">Edit Note</a>
+						<a data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal" class="btn btn-primary btn-xs">Edit Note</a>
 						@endif
-					</span>
+						<span class="badge badge-blue">@datetime($note->created_at)</span>
+					</div>
 				</li>
 			@endforeach
 		</ul>
