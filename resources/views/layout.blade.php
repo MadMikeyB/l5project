@@ -28,6 +28,7 @@
 						<div class="padding">
 							<div class="full col-sm-9">
 								<div class="row">
+									@include('partials.layout.flashmessage')
 									@yield('content')
 								</div>
 							</div>

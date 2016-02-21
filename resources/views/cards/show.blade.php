@@ -1,13 +1,6 @@
 @extends('layout')
 
 @section('content')
-@if (session()->has('flash_message'))
-<div class="alert alert-success">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	<strong>Success!</strong><br>
-	{{ session()->get('flash_message') }}
-</div>
-@endif
 	<div class="col-md-12">
 		<h1>{{ $card->title }}</h1>
 
@@ -34,7 +27,7 @@
 		<form method="post" action="/cards/{{ $card->id }}/notes">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<textarea name="body" class="form-control"></textarea>
+				<textarea name="body" class="form-control" required></textarea>
 			</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary pull-right">Add Note</button>

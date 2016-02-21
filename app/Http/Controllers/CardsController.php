@@ -23,9 +23,16 @@ class CardsController extends Controller
          return view('cards.show', compact('card'));
    	}
 
-   	public function store()
-   	{
+      public function create()
+      {
+         return view('cards.create');
+      }
 
+   	public function store(Request $request)
+   	{
+         Card::create(['title' => $request->title, 'user_id' => $request->user()->id]);
+         session()->flash('flash_message', 'Card Created! Great job.');
+         return redirect('/cards');
    	}
 
 }

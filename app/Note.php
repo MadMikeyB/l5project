@@ -9,7 +9,7 @@ class Note extends Model
 {
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['body', 'user_id']; // Don't want user_id in here - need to remember how to insert it without adding to this, like card_id
+	protected $fillable = ['body', 'user_id']; // @todo user_id should not be fillable
 	
 
     public function card()

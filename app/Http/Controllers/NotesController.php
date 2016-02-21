@@ -25,7 +25,7 @@ class NotesController extends Controller
    	public function update(Request $request, Note $note)
    	{
    		$note->update( $request->all() );
-   		 session()->flash('flash_message', 'Note Updated');
+   		session()->flash('flash_message', 'Note Updated');
    		return back();
    	}
 }
