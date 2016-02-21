@@ -1,9 +1,15 @@
 @extends('layout')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Whoa there!</strong>
+                <p>We just need you to log in first. Sorry about that.</p>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">

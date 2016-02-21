@@ -1,7 +1,10 @@
 <?php
 
-// Cards and Notes only for Authenticated Users.
+// Whole Site for Authenticated Users.
 Route::group(['middleware' => ['web','auth']], function() {
+	// Static Pages
+	Route::get('/', 'PagesController@home');
+	Route::get('about', 'PagesController@about');
 	// All Cards
 	Route::get('cards', 'CardsController@index');
 	// Create Card
@@ -22,9 +25,6 @@ Route::group(['middleware' => ['web','auth']], function() {
 
 // Auth
 Route::group(['middleware' => 'web'], function() {
-	// Static Pages
-	Route::get('/', 'PagesController@home');
-	Route::get('about', 'PagesController@about');
 	// Auth
 	Route::auth();
 	// Social Auth
