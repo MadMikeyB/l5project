@@ -19,7 +19,8 @@
 					<a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
 				</li>
 				<li>
-					<a data-toggle="modal" href="#create-card" role="button"><i class="glyphicon glyphicon-plus"></i> New Card</a>
+					{{-- data-remote="false" will be removed in Bootstrap 4 --}}
+					<a data-toggle="modal" data-target="#create-card" href="/cards/create" data-remote="false" role="button"><i class="glyphicon glyphicon-plus"></i> New Card</a>
 				</li>
 			</ul>
 			@if ( Auth::check() )

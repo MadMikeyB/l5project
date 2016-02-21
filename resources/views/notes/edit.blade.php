@@ -5,7 +5,7 @@
 
 		<form method="post" action="/notes/{{ $note->id }}">
 			{{ method_field('PATCH') }}
-
+			{{ csrf_field() }}
 			<div class="form-group">
 				<textarea name="body" class="form-control">{{ $note->body }}</textarea>
 			</div>

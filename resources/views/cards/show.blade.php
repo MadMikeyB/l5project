@@ -14,7 +14,8 @@
 						@endif
 						@if (Auth::user()->id == $note->user->id )
 						&#47;
-						<a href="#edit-note-{{$note->id}}" data-toggle="modal">Edit Note</a>
+						{{-- data-remote="false" will be removed in Bootstrap 4 --}}
+						<a data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal">Edit Note</a>
 						@endif
 					</span>
 				</li>
