@@ -9,6 +9,7 @@
         {{-- <a href="{{ url('/social/tumblr') }}" type="button" class="btn btn-tumblr"><i class="fa fa-tumblr"></i></a> --}}
         {{-- <a href="{{ url('/social/windows') }}" type="button" class="btn btn-microsoft"><i class="fa fa-windows"></i></a> --}}
         <a href="{{ url('/social/linkedin') }}" type="button" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="{{ url('/social/github') }}" type="button" class="btn btn-github"><i class="fa fa-github"></i></a>
         <a href="{{ url('/social/bitbucket') }}" type="button" class="btn btn-bitbucket"><i class="fa fa-bitbucket"></i></a>
     </div>
 </div>

@@ -98,7 +98,7 @@ class AuthController extends Controller
                     'email'     => $user->getEmail(),
                 ]);
             
-            Auth::user($u ,true);
+            Auth::login($u ,true);
 
             return redirect('/');
         }
