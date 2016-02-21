@@ -18,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('define', function($expression) {
             return preg_replace('/\@define(.+)/', '<?php ${1}; ?>', $expression);
         });
+
+        /* @datetime($var) */
+        Blade::directive('datetime', function($expression) {
+            return "<?php echo with{$expression}->format('d/m/Y H:i'); ?>";
+        });
     }
 
     /**

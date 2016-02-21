@@ -1,13 +1,7 @@
 @if ( session()->has('flash_message') )
-@if ( session()->has('message_type') )
-	@define( $class = session()->get('message_type') )
-@else
-	@define( $class = 'success' )
-@endif
-
-<div class="alert alert-{{$class}}">
+<div class="alert alert-info">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	<strong>{{ ucwords($class) }}</strong><br>
+	<strong>Read me!</strong><br>
 	{{ session()->get('flash_message') }}
 </div>
 @endif
