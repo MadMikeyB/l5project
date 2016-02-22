@@ -9,11 +9,14 @@
 			@foreach ($cards as $card)
 				<li class="list-group-item">
 					<a href="/cards/{{ $card->id }}">{{ $card->title }}</a>
-					<div class="pull-right hidden-xs">
+					<span class="hidden-xs">
 						@if ( $card->user )
-							by <a href="#">{{ $card->user->username }}</a>
+							added by <a href="#">{{ $card->user->username }}</a>
 						@endif
 							on <span class="badge">@datetime($card->created_at)</span>
+					</span>
+					{{-- mod tools --}}
+					<div class="pull-right hidden-xs">
 						@if ( Auth::user()->id === $card->user_id )
 							<form action="/cards/{{ $card->id }}/delete" method="post">
 								{{ method_field('DELETE') }}
@@ -22,6 +25,7 @@
 							</form>
 						@endif
 					</div>
+
 				</li>
 			@endforeach
 			</ul>

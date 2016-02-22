@@ -28,4 +28,11 @@ class NotesController extends Controller
    		session()->flash('flash_message', 'Note Updated');
    		return back();
    	}
+
+      public function destroy(Note $note)
+      {
+         $note->delete();
+         session()->flash('flash_message', 'Note Deleted');
+         return back();
+      }
 }

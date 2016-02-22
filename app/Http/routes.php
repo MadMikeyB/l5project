@@ -13,6 +13,8 @@ Route::group(['middleware' => ['web','auth']], function() {
 	Route::patch('cards/{card}', 'CardsController@update');
 	// Store Card
 	Route::post('cards', 'CardsController@store');
+	// Delete Card
+	Route::delete('cards/{card}/delete', 'CardsController@destroy');
 	// Show Card
 	Route::get('cards/{card}', 'CardsController@show');
 	// Edit Note
@@ -21,8 +23,8 @@ Route::group(['middleware' => ['web','auth']], function() {
 	Route::post('cards/{card}/notes', 'NotesController@store');
 	// Update Note
 	Route::patch('notes/{note}', 'NotesController@update');
-	// Delete Card
-	Route::delete('cards/{card}/delete', 'CardsController@destroy');
+	// Delete Note
+	Route::delete('notes/{note}/delete', 'NotesController@destroy');
 });
 
 // Auth

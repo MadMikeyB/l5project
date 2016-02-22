@@ -40,7 +40,6 @@ class CardsController extends Controller
          $card->delete();
          session()->flash('flash_message', 'Card Archived!');
          return redirect('/cards');
-         //dd('You are not deleting me!');
       }
 
 }

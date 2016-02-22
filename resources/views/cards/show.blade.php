@@ -7,17 +7,25 @@
 		<ul class="list-group">
 			@foreach ( $card->notes as $note )
 				<li class="list-group-item">
-					{{ $note->body }}
-					<div class="pull-right">
+					<span class="text-primary">{{ $note->body }}</span>
+					<span class="hidden-xs text-muted">
 						@if ( $note->user )
-						<a href="#">{{ $note->user->username }}</a>
+							added by <a href="#">{{ $note->user->username }}</a>
 						@endif
-						@if (Auth::user()->id == $note->user->id )
-						&#47;
-						{{-- data-remote="false" will be removed in Bootstrap 4 --}}
-						<a data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal" class="btn btn-primary btn-xs">Edit Note</a>
+						on <span class="badge badge-blue">@datetime($note->created_at)</span>
+					</span>
+					{{-- mod tools --}}
+					<div class="pull-right hidden-xs btn-group" role="group">
+						@if ( Auth::user()->id === $note->user_id )
+							{{-- data-remote="false" will be removed in Bootstrap 4 --}}
+							<a type="button" data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal" class="btn btn-primary btn-xs">Edit Note</a>
+							<form action="/notes/{{ $note->id }}/delete" method="post">
+								{{ method_field('DELETE') }}
+								{{ csrf_field() }}
+								<button type="submit" class="btn btn-danger btn-xs">Delete</button>
+							</form>
+
 						@endif
-						<span class="badge badge-blue">@datetime($note->created_at)</span>
 					</div>
 				</li>
 			@endforeach
