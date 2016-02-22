@@ -26,11 +26,11 @@ class User extends Authenticatable
 
     public function cards()
     {
-        return $this->hasMany(Card::class, 'user_id');
+        return $this->hasMany(Card::class, 'user_id', 'id');
     }
 
     public function notes()
     {
-        return $this->hasMany(Note::class, 'user_id');
+        return $this->hasMany(Note::class, 'user_id', 'id');
     }
 }

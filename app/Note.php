@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Note extends Model
 {
     use SoftDeletes;
-    
+
     protected $dates = ['deleted_at'];
 
 	protected $fillable = ['body', 'user_id']; // @todo user_id should not be fillable

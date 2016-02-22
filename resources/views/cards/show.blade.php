@@ -24,46 +24,85 @@
 		</ul>
 		<hr>
 		
-		<h1>Add a New Note</h1>
-		
-		<form method="post" action="/cards/{{ $card->id }}/notes">
-			{{ csrf_field() }}
-			<div class="form-group">
-				<textarea name="body" class="form-control" required></textarea>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4>Add a New Note</h4>
 			</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary pull-right">Add Note</button>
-				</div>
-		</form>
-	</div>
-@stop
-
-
-@section('footer')
-@foreach ( $card->notes as $note )
-	<div class="modal fade" id="edit-note-{{$note->id}}">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Edit Note</h4>
-				</div>
-				<form method="post" action="/notes/{{ $note->id }}">
+			<div class="panel-body">
+				<form method="post" action="/cards/{{ $card->id }}/notes">
 					{{ csrf_field() }}
-					<div class="modal-body">
-							{{ method_field('PATCH') }}
-
-							<div class="form-group">
-								<textarea name="body" class="form-control">{{ $note->body }}</textarea>
-							</div>
+					<div class="form-group">
+						<textarea name="body" class="form-control" required></textarea>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
-						<button type="submit" class="btn btn-success pull-right">Update Note</button>
-					</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary pull-right">Add Note</button>
+						</div>
 				</form>
 			</div>
 		</div>
+
 	</div>
-@endforeach
+@stop
+
+@section('footer')
+<div class="modal fade" id="create-card">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+
+				<h4 class="modal-title"><i class="fa fa-plus"></i> New Card</h4>
+			</div>
+
+
+			<form action="/cards" method="post">
+				{{ csrf_field() }}
+
+				<div class="modal-body">
+					<div class="form-group">
+						<textarea class="form-control" id="title" name="title" placeholder=
+						"Card Title" required=""></textarea>
+					</div>
+				</div>
+
+
+				<div class="modal-footer">
+					<button class="btn btn-danger pull-left" data-dismiss="modal" type="button">Cancel</button> <button class="btn btn-success pull-right" type="submit">Create Card</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@foreach ( $card->notes as $note )
+
+<div class="modal fade" id="edit-note-{{$note->id}}">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
+
+				<h4 class="modal-title">Edit Note</h4>
+			</div>
+
+
+			<form action="/notes/{{ $note->id }}" method="post">
+				{{ csrf_field() }}
+
+				<div class="modal-body">
+					{{ method_field('PATCH') }}
+
+					<div class="form-group">
+						<textarea class="form-control" name="body">{{ $note->body }}</textarea>
+					</div>
+				</div>
+
+
+				<div class="modal-footer">
+					<button class="btn btn-danger pull-left" data-dismiss="modal" type="button">Cancel</button> <button class="btn btn-success pull-right" type="submit">Update Note</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endforeach 
 @stop

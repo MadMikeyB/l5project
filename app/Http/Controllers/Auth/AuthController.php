@@ -93,6 +93,7 @@ class AuthController extends Controller
         $user = Socialite::driver($provider)->user();
         if ( $user )
         {   
+            
             // check if user exists
             // if ( User::where('email', $user->getEmail() )->first() OR User::where('username', $user->getName()->first() ) )
             // {  
