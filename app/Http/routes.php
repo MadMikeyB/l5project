@@ -21,6 +21,8 @@ Route::group(['middleware' => ['web','auth']], function() {
 	Route::post('cards/{card}/notes', 'NotesController@store');
 	// Update Note
 	Route::patch('notes/{note}', 'NotesController@update');
+	// Delete Card
+	Route::delete('cards/{card}/delete', 'CardsController@destroy');
 });
 
 // Auth

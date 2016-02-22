@@ -7,11 +7,18 @@
 		@foreach ($cards as $card)
 			<li class="list-group-item">
 				<a href="/cards/{{ $card->id }}">{{ $card->title }}</a>
-				<div class="pull-right">
+				<div class="pull-right hidden-xs">
 					@if ( $card->user )
 						by <a href="#">{{ $card->user->username }}</a>
 					@endif
-					on <span class="badge">@datetime($card->created_at)</span>
+						on <span class="badge">@datetime($card->created_at)</span>
+					@if ( Auth::user()->id === $card->user_id )
+						<form action="/cards/{{ $card->id }}/delete" method="post">
+							{{ method_field('DELETE') }}
+							{{ csrf_field() }}
+							<button type="submit" class="btn btn-warning btn-xs">Archive</button>
+						</form>
+					@endif
 				</div>
 			</li>
 		@endforeach

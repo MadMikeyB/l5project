@@ -35,4 +35,12 @@ class CardsController extends Controller
          return redirect('/cards');
    	}
 
+      public function destroy(Card $card)
+      {
+         $card->delete();
+         session()->flash('flash_message', 'Card Archived!');
+         return redirect('/cards');
+         //dd('You are not deleting me!');
+      }
+
 }
