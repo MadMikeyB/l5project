@@ -29,6 +29,7 @@
 							<div class="full col-sm-9">
 								<div class="row">
 									@include('partials.layout.flashmessage')
+									@include('partials.layout.errors')
 									@yield('content')
 								</div>
 							</div>

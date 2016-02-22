@@ -12,6 +12,10 @@ class NotesController extends Controller
 {
    	public function store(Request $request, Card $card)
    	{
+         $this->validate($request, [
+               'body' => 'required|min:4|max:140',
+         ]);
+
    		$card->notes()->create( ['body' => $request->body, 'user_id' => $request->user()->id] );
          session()->flash('flash_message', 'Note Added');
    		return back();
@@ -24,6 +28,10 @@ class NotesController extends Controller
 
    	public function update(Request $request, Note $note)
    	{
+         $this->validate($request, [
+               'body' => 'required|min:4|max:140',
+         ]);
+         
    		$note->update( $request->all() );
    		session()->flash('flash_message', 'Note Updated');
    		return back();

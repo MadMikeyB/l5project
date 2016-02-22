@@ -2,9 +2,11 @@
 
 @section('content')
 	<div class="col-md-12">
-		<h1>All Cards</h1>
+		@unless ( $cards->isEmpty() )
 		<div class="panel panel-default">
-		@if ( !empty($cards) )
+			<div class="panel-heading">
+				<h4>All Cards</h4>
+			</div>
 			<ul class="list-group">
 			@foreach ($cards as $card)
 				<li class="list-group-item">
@@ -33,7 +35,7 @@
 				<form method="post" action="/cards">
 					<div class="input-group">
 						{{ csrf_field() }}
-						<input class="form-control" id="title" name="title" placeholder="Add a card.." type="text">
+						<input class="form-control" id="title" name="title" placeholder="Add a card.." type="text" required="required">
 						<div class="input-group-btn">
 							<button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add Card</button>
 						</div>
@@ -61,6 +63,5 @@
 					</form>
 				</div>
 			</div>
-    @endif
-	</div>
+    @endunless
 @stop

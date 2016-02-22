@@ -30,6 +30,10 @@ class CardsController extends Controller
 
    	public function store(Request $request)
    	{
+         $this->validate($request, [
+               'title' => 'required|min:4|max:140',
+         ]);
+
          Card::create(['title' => $request->title, 'user_id' => $request->user()->id]);
          session()->flash('flash_message', 'Card Created! Great job.');
          return redirect('/cards');
