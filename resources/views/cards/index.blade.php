@@ -5,7 +5,7 @@
 		@unless ( $cards->isEmpty() )
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h4>All Cards</h4>
+				<h4 class="panel-title">All Cards</h4>
 			</div>
 			<ul class="list-group">
 			@foreach ($cards as $card)
@@ -46,7 +46,7 @@
 		@else
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4>There are no Active Cards!</h4>
+					<h4 class="panel-title">There are no Active Cards!</h4>
 				</div>
 
 

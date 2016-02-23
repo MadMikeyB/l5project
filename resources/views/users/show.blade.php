@@ -43,4 +43,22 @@
 	</div>
 	@endunless
 </div>
+	
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ $user->username }}'s Wall</h3>
+	</div>
+	
+	<div class="panel-body">
+		<form method="post" action="/profile/{{$user->id}}">
+			<div class="input-group">
+				{{ csrf_field() }}
+				<input class="form-control" id="title" name="title" placeholder="Leave a message for {{ $user->username }}" type="text">
+				<div class="input-group-btn">
+					<button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add Message</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 @stop

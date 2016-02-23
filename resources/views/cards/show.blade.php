@@ -2,45 +2,49 @@
 
 @section('content')
 	<div class="col-md-12">
-		<h1>{{ $card->title }}</h1>
-
-		<ul class="list-group">
-			@foreach ( $card->notes as $note )
-				<li class="list-group-item">
-					<span class="text-primary">{{ $note->body }}</span>
-					<span class="hidden-xs text-muted">
-						@if ( $note->user )
-							added by <a href="/profile/{{ $note->user_id }}">{{ $note->user->username }}</a>
-						@endif
-						on <span class="badge badge-blue">@datetime($note->created_at)</span>
-					</span>
-
-					<div class="pull-right hidden-xs">
-					{{-- mod tools --}}
-						@if ( Auth::user()->id === $note->user_id )
-							{{-- data-remote="false" will be removed in Bootstrap 4 --}}
-							<div class="btn-group">
-								<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moderation <span class="caret"></span></button>
-								<ul class="dropdown-menu">
-							    	<li><a type="button" data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal">Edit Note</a></li>
-							  	</ul>
-							</div>
-					    	<form action="/notes/{{ $note->id }}/delete" method="post">
-								{{ method_field('DELETE') }}
-								{{ csrf_field() }}
-								<button type="submit" class="btn btn-danger btn-xs btn-block">Delete</button>
-							</form>
-						@endif
-					</div>
-					<div class="clearfix clear"></div>
-				</li>
-			@endforeach
-		</ul>
-		<hr>
-		
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h4>Add a New Note</h4>
+				<h3 class="panel-title">{{ $card->title }}</h3>
+			</div>
+			<ul class="list-group">
+				@foreach ( $card->notes as $note )
+					<li class="list-group-item">
+						<span class="text-primary">{{ $note->body }}</span>
+						<span class="hidden-xs text-muted">
+							@if ( $note->user )
+								added by <a href="/profile/{{ $note->user_id }}">{{ $note->user->username }}</a>
+							@endif
+							on <span class="badge badge-blue">@datetime($note->created_at)</span>
+						</span>
+
+						<div class="pull-right hidden-xs">
+						{{-- mod tools --}}
+							@if ( Auth::user()->id === $note->user_id )
+								{{-- data-remote="false" will be removed in Bootstrap 4 --}}
+								<div class="btn-group">
+									<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moderation <span class="caret"></span></button>
+									<ul class="dropdown-menu">
+								    	<li><a type="button" data-target="#edit-note-{{$note->id}}" data-remote="false" href="/notes/{{$note->id}}/edit" data-toggle="modal">Edit Note</a></li>
+								  	</ul>
+								</div>
+						    	<form action="/notes/{{ $note->id }}/delete" method="post">
+									{{ method_field('DELETE') }}
+									{{ csrf_field() }}
+									<button type="submit" class="btn btn-danger btn-xs btn-block">Delete</button>
+								</form>
+							@endif
+						</div>
+						<div class="clearfix clear"></div>
+					</li>
+				@endforeach
+			</ul>
+		</div>
+	
+		<hr>
+			
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Add a New Note</h4>
 			</div>
 			<div class="panel-body">
 				<form method="post" action="/cards/{{ $card->id }}/notes">
@@ -54,7 +58,6 @@
 				</form>
 			</div>
 		</div>
-
 	</div>
 @stop
 
