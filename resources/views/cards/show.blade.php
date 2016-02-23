@@ -10,7 +10,7 @@
 					<span class="text-primary">{{ $note->body }}</span>
 					<span class="hidden-xs text-muted">
 						@if ( $note->user )
-							added by <a href="#">{{ $note->user->username }}</a>
+							added by <a href="/profile/{{ $note->user_id }}">{{ $note->user->username }}</a>
 						@endif
 						on <span class="badge badge-blue">@datetime($note->created_at)</span>
 					</span>

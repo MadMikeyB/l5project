@@ -13,7 +13,7 @@
 					<a href="/cards/{{ $card->id }}">{{ $card->title }}</a>
 					<span class="hidden-xs">
 						@if ( $card->user )
-							added by <a href="#">{{ $card->user->username }}</a>
+							added by <a href="/profile/{{ $card->user_id }}">{{ $card->user->username }}</a>
 						@endif
 							on <span class="badge">@datetime($card->created_at)</span>
 					</span>

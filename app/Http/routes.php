@@ -2,9 +2,21 @@
 
 // Whole Site for Authenticated Users.
 Route::group(['middleware' => ['web','auth']], function() {
-	// Static Pages
+    /*
+    |--------------------------
+    | Static Pages
+    |--------------------------
+    */
+
 	Route::get('/', 'PagesController@home');
 	Route::get('about', 'PagesController@about');
+
+	/*
+    |--------------------------
+    | Cards
+    |--------------------------
+    */
+
 	// All Cards
 	Route::get('cards', 'CardsController@index');
 	// Create Card
@@ -17,6 +29,13 @@ Route::group(['middleware' => ['web','auth']], function() {
 	Route::delete('cards/{card}/delete', 'CardsController@destroy');
 	// Show Card
 	Route::get('cards/{card}', 'CardsController@show');
+	
+	/*
+    |--------------------------
+    | Notes
+    |--------------------------
+    */
+
 	// Edit Note
 	Route::get('notes/{note}/edit', 'NotesController@edit');
 	// Store Note
@@ -25,6 +44,14 @@ Route::group(['middleware' => ['web','auth']], function() {
 	Route::patch('notes/{note}', 'NotesController@update');
 	// Delete Note
 	Route::delete('notes/{note}/delete', 'NotesController@destroy');
+
+    /*
+    |--------------------------
+    | Users
+    |--------------------------
+    */
+    
+    Route::get('profile/{user}', 'UsersController@show');
 });
 
 // Auth
