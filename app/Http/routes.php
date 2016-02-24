@@ -50,7 +50,8 @@ Route::group(['middleware' => ['web','auth']], function() {
     | Users
     |--------------------------
     */
-    
+
+    Route::get('users', 'UsersController@index');
     Route::get('profile/{user}', 'UsersController@show');
 });
 

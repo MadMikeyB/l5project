@@ -14,7 +14,7 @@
 				<a href="/cards"><i class="glyphicon glyphicon-list"></i> Cards</a>
 			</li>
 			<li>
-				<a href="/"><i class="fa fa-users"></i> Users</a>
+				<a href="/users"><i class="fa fa-users"></i> Users</a>
 			</li>
 		</ul>
 
