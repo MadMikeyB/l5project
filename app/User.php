@@ -38,4 +38,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Note::class, 'user_id', 'id');
     }
+
+    public function usernotes()
+    {
+        return $this->hasMany(UserNote::class, 'recipient_id', 'id');
+    }
+
 }

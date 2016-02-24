@@ -12,7 +12,7 @@ class CreateUserNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('usernotes', function (Blueprint $table) {
+        Schema::create('user_notes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id')->unsigned()->index()->comment = "User ID of Note Author";
             $table->integer('recipient_id')->unsigned()->index()->comment = "User ID of Note Recipient";
@@ -28,6 +28,6 @@ class CreateUserNotesTable extends Migration
      */
     public function down()
     {
-        // Schema::drop('usernotes');
+        Schema::drop('user_notes');
     }
 }
