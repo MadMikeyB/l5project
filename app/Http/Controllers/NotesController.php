@@ -16,7 +16,11 @@ class NotesController extends Controller
                'body' => 'required|min:4|max:140',
          ]);
 
-   		$card->notes()->create( ['body' => $request->body, 'user_id' => $request->user()->id] );
+         $note = new Note($request->all());
+         $note->user_id = $request->user()->id;
+         $card->notes()->save($note);
+
+   		// $card->notes()->create( ['body' => $request->body, 'user_id' => $request->user()->id] );
          session()->flash('flash_message', 'Note Added');
    		return back();
    	}

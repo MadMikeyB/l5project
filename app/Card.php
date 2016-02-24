@@ -12,8 +12,7 @@ class Card extends Model
 
 	protected $dates = ['deleted_at'];
 
-	protected $fillable = ['title', 'user_id']; // @todo user_id should not be fillable.
-
+	protected $fillable = ['title'];
 
 	public function notes()
 	{

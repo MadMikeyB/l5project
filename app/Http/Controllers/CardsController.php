@@ -34,7 +34,11 @@ class CardsController extends Controller
                'title' => 'required|min:4|max:140',
          ]);
 
-         Card::create(['title' => $request->title, 'user_id' => $request->user()->id]);
+         $card = new Card($request->all());
+         $card->user_id = $request->user()->id;
+         $card->save();
+
+         // Card::create(['title' => $request->title, 'user_id' => $request->user()->id]);
          session()->flash('flash_message', 'Card Created! Great job.');
          return redirect('/cards');
    	}

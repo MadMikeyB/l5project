@@ -11,7 +11,7 @@ class Note extends Model
 
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['body', 'user_id']; // @todo user_id should not be fillable
+	protected $fillable = ['body']; // @todo user_id should not be fillable
 	
 
     public function card()
