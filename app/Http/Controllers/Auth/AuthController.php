@@ -91,6 +91,11 @@ class AuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
+        // can we validate this before we even get to the user model?!
+        $this->validate($request,[
+
+        ]);
+
         if ( $user )
         {  
             // Twitter does not provide an email address, and you have to be whitelisted by Twitter to obtain it.

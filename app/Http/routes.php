@@ -53,6 +53,8 @@ Route::group(['middleware' => ['web','auth']], function() {
 
     Route::get('users', 'UsersController@index');
     Route::get('profile/{user}', 'UsersController@show');
+
+    Route::post('profile/{user}', 'UsersController@storeNote');
 });
 
 // Auth
