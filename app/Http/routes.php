@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web','auth']], function() {
 	
 	/*
     |--------------------------
-    | Notes
+    | Card Notes
     |--------------------------
     */
 
@@ -53,8 +53,14 @@ Route::group(['middleware' => ['web','auth']], function() {
 
     Route::get('users', 'UsersController@index');
     Route::get('profile/{user}', 'UsersController@show');
+    
+    /*
+    |--------------------------
+    | User Notes
+    |--------------------------
+    */
 
-    Route::post('profile/{user}', 'UsersController@storeNote');
+    Route::post('profile/{user}', 'UserNotesController@store');
 });
 
 // Auth
