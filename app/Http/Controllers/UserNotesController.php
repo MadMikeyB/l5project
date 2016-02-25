@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Card;
-use App\Note;
+use App\UserNote;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
@@ -16,11 +15,12 @@ class UserNotesController extends Controller
                'body' => 'required|min:4|max:140',
          ]);
 
-         $note = new Note($request->all());
-         $note->user_id = $request->user()->id;
-         $user->notes()->save($note);
+         $note = new UserNote;
+         $note->author_id = $request->user()->id;
+         $note->recipient_id = $user->id;
+         $note->body = $request->body;
+         $note->save();
 
-   		// $card->notes()->create( ['body' => $request->body, 'user_id' => $request->user()->id] );
          session()->flash('flash_message', 'Note Added');
    		return back();
    	}

@@ -9,13 +9,13 @@ class UserNote extends Model
 	// $note->author();
     public function author()
 	{
-		return $this->belongsTo(User::class);
+		return $this->hasOne(User::class, 'id', 'author_id');
 	}
 
 	// $note->user(); // Recipient
 	public function user()
 	{
-		return $this->hasOne(User::class, 'user_id', 'recipient_id');
+		return $this->belongsTo(User::class, 'recipient_id', 'id');
 	}
 
 
