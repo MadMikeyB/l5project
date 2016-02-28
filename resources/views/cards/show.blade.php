@@ -48,13 +48,13 @@
 			</div>
 			<div class="panel-body">
 				<form method="post" action="/cards/{{ $card->id }}/notes">
-					{{ csrf_field() }}
-					<div class="form-group">
-						<textarea name="body" class="form-control" required></textarea>
-					</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary pull-right">Add Note</button>
+					<div class="input-group">
+						{{ csrf_field() }}
+						<input class="form-control" id="body" name="body" placeholder="Add a note.." type="text" required="required">
+						<div class="input-group-btn">
+							<button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add Note</button>
 						</div>
+					</div>
 				</form>
 			</div>
 		</div>
