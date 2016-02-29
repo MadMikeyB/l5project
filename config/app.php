@@ -159,7 +159,8 @@ return [
         // Other service providers...
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Spatie\Permission\PermissionServiceProvider::class
+        Spatie\Permission\PermissionServiceProvider::class,
+        Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class
     ],
 
     /*
@@ -207,7 +208,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         // External Facades
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'LaravelAnalytics' => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
 
     ],
 

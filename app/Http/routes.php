@@ -61,6 +61,16 @@ Route::group(['middleware' => ['web','auth']], function() {
     */
 
     Route::post('profile/{user}', 'UserNotesController@store');
+    /*
+    |--------------------------
+    | Analytics test
+    |--------------------------
+    */
+	Route::get('analytics/live', 'AnalyticsController@live');
+
+	Route::get('analytics/{numberOfDays?}', 'AnalyticsController@index');
+
+
 });
 
 // Auth
