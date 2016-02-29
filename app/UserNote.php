@@ -6,17 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserNote extends Model
 {
-	// $note->author();
+    // $note->author();
     public function author()
-	{
-		return $this->hasOne(User::class, 'id', 'author_id');
-	}
+    {
+        return $this->hasOne(User::class, 'id', 'author_id');
+    }
 
-	// $note->user(); // Recipient
-	public function user()
-	{
-		return $this->belongsTo(User::class, 'recipient_id', 'id');
-	}
-
-
+    // $note->user(); // Recipient
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'recipient_id', 'id');
+    }
 }
