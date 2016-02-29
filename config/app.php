@@ -160,10 +160,7 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-<<<<<<< HEAD
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class
-=======
->>>>>>> 9032476ec56d5c992c885b865184bbd1396f13ce
     ],
 
     /*
@@ -211,10 +208,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         // External Facades
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-<<<<<<< HEAD
         'LaravelAnalytics' => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
-=======
->>>>>>> 9032476ec56d5c992c885b865184bbd1396f13ce
 
     ],
 
