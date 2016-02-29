@@ -11,16 +11,15 @@ class Note extends Model
 
     protected $dates = ['deleted_at'];
 
-	protected $fillable = ['body'];
-	
+    protected $fillable = ['body'];
 
     public function card()
     {
-    	return $this->belongsTo(Card::class);
+        return $this->belongsTo(Card::class);
     }
-    
+
     public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
+    {
+        return $this->belongsTo(User::class);
+    }
 }
