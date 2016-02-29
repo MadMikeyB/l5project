@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateUserNotesTable extends Migration
 {
@@ -14,8 +14,8 @@ class CreateUserNotesTable extends Migration
     {
         Schema::create('user_notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id')->unsigned()->index()->comment = "User ID of Note Author";
-            $table->integer('recipient_id')->unsigned()->index()->comment = "User ID of Note Recipient";
+            $table->integer('author_id')->unsigned()->index()->comment = 'User ID of Note Author';
+            $table->integer('recipient_id')->unsigned()->index()->comment = 'User ID of Note Recipient';
             $table->text('body');
             $table->timestamps();
         });
